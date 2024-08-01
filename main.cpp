@@ -127,11 +127,12 @@ public:
 
 
 
-Fraction input(string& s) {
+Fraction input(const string& s) {
     int n = 0, d = 0, deg = 0;
-  //  int
-      size_t  slash_pos = s.find('/');
-    if (slash_pos != s.npos) {
+   int
+   //   size_t
+        slash_pos = s.find('/');
+    if (slash_pos != (int)s.npos) {
         int i = slash_pos - 1;
         while (i > -1) {
             if (s[i] != '-')
@@ -264,5 +265,5 @@ int main(int argc, char *argv[])
 }
 // видимо это такой класс - тип данных в котором числитель и знаменатель хранится по отдельности как целые
 // надо видимо проверить крайние значения - что произойдёт если за диапазон выйти
-
+// надо чтобы
  //};;;
