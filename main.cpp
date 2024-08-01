@@ -89,8 +89,17 @@ Fraction input(string& s) {
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    Fraction z=6.7,x= 77;(z/x).show() ;    std::cout << "\n" <<  std::endl;
+
+    Fraction z=6.7,x= 77;
+   Fraction k=z.denom;
+    (k).show() ;    std::cout << "\n" <<  std::endl;
+    (z/x).show() ;    std::cout << "\n" <<  std::endl;
+    Fraction n=6/7, m=5/4, o; o=n/m; o.show();    std::cout <<   std::endl;
     std::cout << "z = " <<  std::endl;
     z.show() ;
     return a.exec();
 }
+// видимо это такой класс - тип данных в котором числитель и знаменатель хранится по отдельности как целые
+
+
+
