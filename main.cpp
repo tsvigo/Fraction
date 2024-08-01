@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <string>
 
-#include <fstream>
 #include <iostream>
 using namespace std;
 int fract_nod(int a, int b) {
@@ -28,7 +27,7 @@ public:
         cout << "\t" << numer;
         if (denom != 1) cout << "/" << denom;
     }
-    Fraction operator + (Fraction& other) {
+    Fraction operator + (const Fraction& other) {
         return
             Fraction(
                 numer * other.denom + denom * other.numer,
@@ -38,7 +37,7 @@ public:
     Fraction operator - (Fraction& other) {
         return Fraction(numer, denom) + Fraction(-other.numer, other.denom);
     }
-    Fraction operator * (Fraction& other) {
+    Fraction operator * (const Fraction& other) {
         return
             Fraction(
                 numer * other.numer, denom * other.denom
@@ -90,6 +89,8 @@ Fraction input(string& s) {
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-
+    Fraction z=6.7,x= 77;(z/x).show() ;    std::cout << "\n" <<  std::endl;
+    std::cout << "z = " <<  std::endl;
+    z.show() ;
     return a.exec();
 }
