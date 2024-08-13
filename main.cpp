@@ -3,7 +3,23 @@
 #include <string>
 #include <limits>
 #include <iostream>
+#include <stdexcept>
 using namespace std;
+//--------------------------------------------------------------------------------------------------------------------
+std::string inputStr;
+
+//--------------------------------------------------------------------------------------------------------------------
+bool isValidInput(const std::string& inputStr) {
+    try {
+        int number = std::stoi(inputStr);
+        return number != 0;
+    } catch (const std::invalid_argument& e) {
+        return false;
+    } catch (const std::out_of_range& e) {
+        return false;
+    }
+}
+//--------------------------------------------------------------------------------------------------------------------
 int fract_nod(int a, int b)
 {
     if (b == 0) return a;
@@ -221,6 +237,12 @@ Fraction inputFromConsole()
 
 
     return input(inputStr);
+    if (isValidInput(inputStr)) {
+        qDebug() << "Входные данные корректны";
+         cout << "Входные данные корректны";
+    } else {
+        qDebug() << "Входные данные некорректны";
+    }
 }
 //https://tlgg.ru/Selfinstallation
 
@@ -241,6 +263,7 @@ int main(int argc, char *argv[])
     Fraction f2(3, 17); // 3/4
 
     Fraction result = f1 / f2;
+    //sqrt(result);
     cout << "Результат деления: " << result << endl;
      cout << "f1 = " << f1 << endl;
        cout << "f2 = " << f2 << endl;
@@ -253,6 +276,13 @@ int main(int argc, char *argv[])
            cout << "f2>f1" << endl;
      }
              ;
+ //--------------------------------------------------------------------------------------------------------------------
+     if (isValidInput(inputStr)) {
+         qDebug() << "Входные данные корректны";
+     } else {
+         qDebug() << "Входные данные некорректны";
+     }    
+//--------------------------------------------------------------------------------------------------------------------     
      Fraction f4 = inputFromConsole();
      Fraction f5 = inputFromConsole();
      cout << "f4= "<< f4 << endl;
